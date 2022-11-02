@@ -1,0 +1,16 @@
+<div class="nasa">
+  <h2>Votre réponse: </h2>
+  <% @answers.each do |elt| %>
+    <p> <%= elt %> </p>
+  <% end %>
+  <% solution = JSON.parse @test.solution %>
+  <% solutions = solution["solutions_list"] %>
+  <% explanations = solution["explanations"] %>
+  <h2>La bonne réponse est:</h2>
+  <table>
+    <tr><th><strong>Réponses</strong></th> - <th><strong>Explications</strong></th></tr>
+    <% solutions.each_with_index do |elt, index| %>
+      <tr><td><%= elt %></td> - <td><%= explanations[index] %></td></tr>
+    <% end %>
+  </table>
+</div>

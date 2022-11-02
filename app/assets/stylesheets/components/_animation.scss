@@ -1,0 +1,35 @@
+.word-input {
+  position: relative;
+
+  .valid-animation {
+    font-weight: bolder;
+    color: green;
+    opacity: 0.4;
+    position: absolute;
+    animation:1s translation linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    z-index: 1000;
+  }
+  .unvalid-animation {
+    font-weight: bolder;
+    color: red;
+    opacity: 0.4;
+    position: absolute;
+    animation:1s translation linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    z-index: 1000;
+  }
+
+  @keyframes translation {
+    from {
+      transform:translateX(200px) translateY(0px);
+    }
+    to {
+      transform:translateX(560px) translateY(-80px);
+    }
+  }
+}

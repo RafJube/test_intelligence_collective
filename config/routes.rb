@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, :tests, :categories, :user_tests
   end
-  resources :categories, only: [:index, :show], param: :name
+  resources :categories, only: %i[index show], param: :name
   resources :tests, only: [:show], param: :name do
-    resources :user_tests, only: [:index, :show, :create, :new]
+    resources :user_tests, only: %i[show create new]
   end
+  resources :user_tests, only: %i[index]
+  post 'word_validation', to: 'liste_de_mots#word_validation'
 end

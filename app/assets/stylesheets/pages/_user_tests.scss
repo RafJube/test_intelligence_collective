@@ -1,0 +1,28 @@
+.nasa-new{
+  #nasa-list li {
+    cursor: grab;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 1px 1px black;
+    margin: 5px;
+    padding: 10px;
+  }
+  #nasa-list li:active {
+    cursor: grabbing;
+    background: lightgrey;
+  }
+  #nasa-list li.ghost {
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+  .text-field {
+    display: none;
+  }
+}
+tbody tr td {
+  border-width: 1px;
+}

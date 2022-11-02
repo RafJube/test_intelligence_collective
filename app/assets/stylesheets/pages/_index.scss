@@ -1,6 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "tests_forms";
+@import "user_tests";
 
 a {
   color: black;
@@ -9,4 +9,9 @@ a {
 
 a:hover {
   opacity: 0.6;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

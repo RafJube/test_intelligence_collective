@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="col">
+    <h2>Voici vos tests déjà réalisés:</h2>
+    <% @user_tests.each do |user_test| %>
+      <div class="col-lg-4 col-md-6 col-12 card-category cards">
+        <%= link_to test_user_test_path(user_test.test.name, user_test) do %>
+          <%= user_test.test.name.upcase %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

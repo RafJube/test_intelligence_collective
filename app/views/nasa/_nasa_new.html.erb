@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center nasa" data-controller="nasa" data-nasa-duration="<%= @test.duration %>" >
+  <div class="col-8 nasa-new">
+    <h1><i class="fa-solid fa-stopwatch"></i> <span id="counter"></span></h1>
+    <%= simple_form_for [@test, @user_test], url: test_user_tests_path(@test.name), :data => { "nasa-target"=>"form" } do |f| %>
+        <p>Drag and drop les propositions dans l'ordre de votre choix, les plus hauts étant indispensables et les plus bas inutiles. Bonne chance!</p>
+        <% solution = JSON.parse @test.solution %>
+        <% list = solution["solutions_list"] %>
+        <ul id="nasa-list" class="list-group" data-controller="sortable">
+          <% list.shuffle.each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+        <%= f.input :answer, label: false, :input_html => { class: 'text-field', display: "none", data: {nasa_target: "answer"} } %>
+        <%= f.submit "Confirm", class: "btn btn-ghost", data: { action: "click->nasa#submitForm" } %>
+    <% end %>
+  </div>
+</div>

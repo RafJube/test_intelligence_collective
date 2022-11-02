@@ -1,8 +1,8 @@
-const counter = (duration) => {
+const startCounter = (duration, callback) => {
   // Set the date we're counting down to
   var countDownDate = new Date().getTime() + duration*1000;
   // Update the count down every 1 second
-  var x = setInterval(function() {
+  var interval = setInterval(function() {
     // Get todays date and time
     var now = new Date().getTime();
     // Find the distance between now and the count down date
@@ -20,12 +20,18 @@ const counter = (duration) => {
     document.getElementById("counter").innerHTML = minutes + "mn " + seconds + "s ";
     }
     // If the count down is over, write some text
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("counter").innerHTML = "Fini";
-      document.getElementsByClassName("btn")[0].disabled=false;
-      document.getElementsByClassName("input")[0].readOnly=true;
+    if (distance <= 0) {
+      document.getElementById("counter").innerHTML = 0 + "mn " + 0 + "s ";
+      stopCounter(interval)
+      callback();
     }
   }, 1000);
+  return interval;
 }
-export{counter};
+
+const stopCounter = (counter_id) => {
+  clearInterval(counter_id);
+  console.log("Stop")
+}
+
+export{ startCounter, stopCounter};
