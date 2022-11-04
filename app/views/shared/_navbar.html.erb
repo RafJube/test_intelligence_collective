@@ -21,6 +21,9 @@
             <%= image_tag asset_path("Ducktrix.jpg"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mes tests", user_tests_path, class: "dropdown-item" %>
+              <% if current_user.admin %>
+                <%= link_to "Admin Dashboard", admin_path, class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
             </div>
           </li>
