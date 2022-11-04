@@ -1,0 +1,24 @@
+.buttons.text-field-dark {
+  font-size: 24px;
+  color: #41403E;
+  width: fit-content;
+  min-height: 60px;
+  border:solid 5px #41403E;
+  margin: 0;
+  padding: 10px 10px;
+  transition: 0.5s;
+}
+.buttons.text-field-dark:focus {
+  transition: 0.5s;
+}
+
+.buttons.text-field-dark.word {
+  text-align: start;
+}
+
+.buttons.text-field-dark.answers {
+  min-width: 400px;
+  min-height: 500px;
+  border:dashed 7px #41403E;
+  font-size: 36px;
+}

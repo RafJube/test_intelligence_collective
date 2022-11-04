@@ -1,12 +1,22 @@
-<div class="container">
-  <div class="col">
-    <h2>Voici vos tests déjà réalisés:</h2>
-    <% @user_tests.each do |user_test| %>
-      <div class="col-lg-4 col-md-6 col-12 card-category cards">
-        <%= link_to test_user_test_path(user_test.test.name, user_test) do %>
-          <%= user_test.test.name.upcase %>
+<div class="container d-flex flex-column align-items-center">
+  <h1>Voici vos tests déjà réalisés:</h1>
+  <% @tests.each do |test| %>
+    <div class="row card-category">
+      <div class="col-4 button-category buttons">
+        <%= test.category.name.upcase %>
+      </div>
+      <div class="col-4">
+        <% @user_tests.each do |user_test| %>
+          <% if user_test.test == test %>
+            <div class="buttons button-test">
+              <%= link_to test_user_test_path(user_test.test.name, user_test) do %>
+                <%= test.name.upcase %>
+                <%= "#{user_test.score}%" %>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

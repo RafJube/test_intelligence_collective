@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, :tests, :categories, :user_tests
   end
-  resources :categories, only: %i[index show], param: :name
+  resources :categories, only: %i[index]
   resources :tests, only: [:show], param: :name do
     resources :user_tests, only: %i[show create new]
   end

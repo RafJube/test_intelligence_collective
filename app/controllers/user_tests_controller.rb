@@ -1,6 +1,10 @@
 class UserTestsController < ApplicationController
   def index
     @user_tests = UserTest.where(user_id: current_user)
+    @tests = []
+    @user_tests.each do |user_test|
+      @tests.include?(user_test.test) ? @tests : @tests << user_test.test
+    end
   end
 
   def show

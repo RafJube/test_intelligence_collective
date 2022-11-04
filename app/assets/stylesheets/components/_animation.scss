@@ -6,7 +6,7 @@
     color: green;
     opacity: 0.4;
     position: absolute;
-    animation:1s translation linear;
+    animation:1s translation-word linear;
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
@@ -17,19 +17,20 @@
     color: red;
     opacity: 0.4;
     position: absolute;
-    animation:1s translation linear;
+    animation:1s translation-word linear;
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     z-index: 1000;
   }
 
-  @keyframes translation {
+  @keyframes translation-word {
     from {
-      transform:translateX(200px) translateY(0px);
+      transform:translateX(240px) translateY(0px);
     }
     to {
-      transform:translateX(560px) translateY(-80px);
+      transform:translateX(550px) translateY(0px);
+      font-size: 54px;
     }
   }
 }

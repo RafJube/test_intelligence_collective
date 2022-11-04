@@ -20,7 +20,6 @@ export default class extends Controller {
     this.clearWordField();
     const [data, status, xhr] = event.detail;
     const json_response = JSON.parse(xhr.response)
-    this.answerTarget.innerHTML = json_response["words"];
     this.validatedWordsTarget.value = json_response["words"]
     this.validationAnimation(json_response["validation"])
   }
@@ -33,6 +32,7 @@ export default class extends Controller {
       animation.classList.add("valid-animation");
       animation.innerHTML = "+1";
       setTimeout(() => {
+        this.answerTarget.innerHTML = this.validatedWordsTarget.value
         this.incrementValidWords(1);
         animation.remove();
       }, 1000);

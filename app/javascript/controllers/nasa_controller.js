@@ -16,14 +16,19 @@ export default class extends Controller {
     this.formTarget.submit();
   }
 
-  submitForm() {
-    const inputs = this.element.getElementsByTagName("li")
-    let answer = ""
+  submitForm(event) {
+    event.preventDefault();
+    const inputs = this.element.getElementsByTagName("li");
+    let answer = "";
     for (const input of inputs) {
-      answer += `${input.innerText}/`
+      answer += `${input.innerText}/`;
     }
-    this.answerTarget.innerText = answer
-    this.formTarget.submit()
+    this.answerTarget.innerText = answer;
+    if (confirm("Voulez-vous soumettre le résultats?")) {
+      this.formTarget.submit();
+    } else {
+      return false;
+    }
   }
 
   disconnect() {

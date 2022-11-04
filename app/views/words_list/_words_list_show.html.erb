@@ -1,6 +1,8 @@
 <div class="listedemots">
   <h2>Vous avez trouvé <%= @answers.count %> bonnes réponses</h2>
-  <% @answers.each do |elt| %>
-    <p> <%= elt %> </p>
-  <% end %>
+  <div class="buttons text-field-dark">
+    <% @answers.each do |elt| %>
+      <p class="m-0"> <%= elt %> </p>
+    <% end %>
+  </div>
 </div>

@@ -9,10 +9,10 @@
         } do |f| %>
           <h3>Tapez vos réponses une par une en les validant ci-dessous:</h3>
           <div class="mb-3 word-input" data-listedemots-target="wordInput">
-            <%= f.text_field :word, label: false, autofocus: true, class: 'text-field', data: { listedemots_target: "word"} %>
+            <%= f.text_field :word, label: false, autofocus: true, class: 'text-field buttons text-field-dark word', data: { listedemots_target: "word"} %>
             <%= f.text_field :words, label: false, class: 'd-none text-field', data: { listedemots_target: "validatedWords"} %>
           </div>
-          <%= f.submit "Valider le mot", class: "btn btn-ghost" %>
+          <%= f.submit "Valider le mot", class: "buttons button-dark" %>
         <% end %>
       </div>
     </div>
@@ -21,8 +21,8 @@
       <div class="col-auto">
         <%= simple_form_for [@test, @user_test], url: test_user_tests_path(@test.name), data: { listedemots_target: "form" } do |f| %>
             <h3>Mots validés: <span data-listedemots-target="wordsCounter" id="wordsCounter">0</span></h3>
-            <%= f.input :answer, label: false , input_html: { rows: 10, readonly: true, class: 'text-field', data: {listedemots_target:"answer"} }%>
-            <%= f.submit "Arreter le chrono avant la fin et valider", class: "btn btn-ghost", :data => { confirm: "Voulez-vous soumettre le résultats?" } %>
+            <%= f.input :answer, label: false , input_html: { rows: 10, readonly: true, class: 'text-field buttons text-field-dark answers', data: {listedemots_target:"answer"} }%>
+            <%= f.submit "Arreter le chrono avant la fin et valider", class: "buttons button-dark", :data => { confirm: "Voulez-vous soumettre le résultats?" } %>
         <% end %>
       </div>
     </div>

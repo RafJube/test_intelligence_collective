@@ -1,14 +1,21 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "user_tests";
+@import "show";
+@import "nasa_test";
+@import "categories";
+
+body {
+  font-family: 'Patrick Hand SC', cursive;
+  color:#41403E;
+}
 
 a {
-  color: black;
+  color:#41403E;
   text-decoration: none;
 }
 
 a:hover {
-  opacity: 0.6;
+  color:#41403E;
 }
 
 h1, h2, h3, h4, h5, h6, p {

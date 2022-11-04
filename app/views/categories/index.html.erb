@@ -1,11 +1,27 @@
-<div class="container">
-  <div class="row">
-    <% @categories.each do |category| %>
-      <div class="col-lg-4 col-md-6 col-12 card-category cards">
-        <%= link_to category_path(category.name) do %>
-          <%= category.name.upcase %>
+<div class="container d-flex flex-column align-items-center">
+  <% @categories.each do |category| %>
+    <div class="row card-category">
+      <div class="col-4 button-category buttons">
+        <%= category.name.upcase %>
+        <% test_count = Test.where(category_id: category).count %>
+        <% if test_count > 0 %>
+          <div class="test-info">
+            <%= test_count %>
+          </div>
         <% end %>
       </div>
-    <% end %>
-  </div>
+      <% tests = Test.where(category_id: category) %>
+      <% if tests.length > 0 %>
+        <div class="col-4">
+          <% tests.each do |test| %>
+          <div class="buttons button-test">
+            <%= link_to test_path(test.name) do %>
+              <%= test.name.upcase %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

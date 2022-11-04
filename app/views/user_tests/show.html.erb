@@ -1,8 +1,9 @@
-<div class="container">
+<div class="d-flex flex-column align-items-center">
+  <div class="row justify-content-center">
+    <h1><%= @test.name.upcase %> <i class="fa-solid fa-circle-info" data-bs-toggle="modal" data-bs-target="#testDescription"></i></h1>
+  </div>
   <div class="row justify-content-between">
-    <%= render 'tests/test_description' %>
-    <div class="col-7 test-content">
-    <h1>Votre score est de: <%= @user_test.score %>%</h1>
+    <div class="col-5">
       <% case @test.name.downcase %>
         <% when 'liste de mots' %>
           <%= render "words_list/words_list_show" %>
@@ -10,5 +11,9 @@
           <%= render "nasa/nasa_show" %>
       <% end %>
     </div>
-  </div>
-</div>
+    <div class="col-5">
+      <h2>Votre score est de:</h2>
+      <h2><%= @user_test.score %>%</h2>
+      <h2>Statistiques:</h2>
+    </div>
+    <%= render 'shared/modal_test_description' %>

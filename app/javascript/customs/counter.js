@@ -31,7 +31,6 @@ const startCounter = (duration, callback) => {
 
 const stopCounter = (counter_id) => {
   clearInterval(counter_id);
-  console.log("Stop")
 }
 
 export{ startCounter, stopCounter};
