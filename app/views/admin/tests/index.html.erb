@@ -1,22 +1,26 @@
 <div class="row d-flex justify-content-around">
   <%= render 'admin/shared/side_bar' %>
   <div class="col-8 d-flex flex-column">
-    <h1>Categories</h1>
+    <h1>Tests</h1>
     <div class="row">
-      <div class="col-9 d-flex align-items-center"><h2>Name</h2></div>
+      <div class="col-3 d-flex align-items-center"><h2>Name</h2></div>
+      <div class="col-2 d-flex align-items-center"><h2>Duration</h2></div>
+      <div class="col-4 d-flex align-items-center"><h2>Description</h2></div>
       <div class="col-1 d-flex justify-content-center align-items-center"><h3>Edit</h3></div>
       <div class="col-1 d-flex justify-content-center align-items-center"><h3>Destroy</h3></div>
     </div>
-    <% @categories.each do |category| %>
+    <% @tests.each do |test| %>
       <div class="row">
-        <div class="col-9 d-flex align-items-center"><h3><%= category.name %></h3></div>
+        <div class="col-3 d-flex align-items-center"><h3><%= test.name %></h3></div>
+        <div class="col-2 d-flex align-items-center"><h3><%= test.duration %></h3></div>
+        <div class="col-4 d-flex align-items-center"><p><%= test.description %></p></div>
         <div class="col-1 d-flex justify-content-center align-items-center">
-          <%= link_to edit_admin_category_path(category) do %>
+          <%= link_to edit_admin_test_path(test) do %>
             <i class="fa-solid fa-pencil"></i>
           <% end %>
         </div>
         <div class="col-1 d-flex justify-content-center align-items-center">
-          <%= link_to admin_category_path(category),
+          <%= link_to admin_test_path(test),
                   method: :delete,
                   data: { confirm: "Are you sure?" } do %>
             <i class="fa-solid fa-trash"></i>
@@ -25,8 +29,8 @@
       </div>
     <% end %>
     <div class="button-dark buttons mt-5">
-      <%= link_to new_admin_category_path do %>
-        Nouvelle categorie
+      <%= link_to new_admin_test_path do %>
+        Nouveau test
       </div>
     <% end %>
   </div>

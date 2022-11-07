@@ -1,0 +1,15 @@
+<div class="row d-flex justify-content-around">
+  <%= render 'admin/shared/side_bar' %>
+  <div class="col-8 d-flex flex-column">
+    <h1>Test</h1>
+    <%= simple_form_for @test, url: admin_test_path(@test) do |f| %>
+      <p>ID: <%= @test.id %></p>
+      <%= f.input :name %>
+      <%= f.input :category_id, collection: Category.all %>
+      <%= f.input :duration %>
+      <%= f.input :description %>
+      <%= f.input :solution %>
+      <%= f.submit "Mettre à jour", class: "buttons button-dark" %>
+    <% end %>
+  </div>
+</div>

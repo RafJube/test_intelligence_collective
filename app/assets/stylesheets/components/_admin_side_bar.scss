@@ -1,3 +1,7 @@
 .side-bar-admin {
-  min-height: 500px;
+  height: 500px;
+  .buttons.active {
+    scale: 1.2;
+    background-color: lightsteelblue;
+  }
 }

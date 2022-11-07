@@ -1,22 +1,12 @@
 <div class="col-3 side-bar-admin d-flex flex-column align-items-center justify-content-around">
-    <div class="button-dark buttons">
-      <%= link_to admin_users_path do %>
-        Users
-      <% end %>
-    </div>
-    <div class="button-dark buttons">
-      <%= link_to admin_categories_path do %>
-        Categories
-      <% end %>
-    </div>
-    <div class="button-dark buttons">
-      <%= link_to admin_tests_path do %>
-        Tests
-      <% end %>
-    </div>
-    <div class="button-dark buttons">
-      <%= link_to admin_user_tests_path do %>
-        User Tests
-      <% end %>
-    </div>
+
+      <%= link_to "Users", admin_users_path ,class:"button-dark buttons #{'active' if @current_view == 'users'}" %>
+
+      <%= link_to "Categories", admin_categories_path, class:"button-dark buttons #{'active' if @current_view == 'categories'}" %>
+
+      <%= link_to "Tests", admin_tests_path, class:"button-dark buttons #{'active' if @current_view == 'tests'}" %>
+
+
+    <%= link_to "User Tests", admin_user_tests_path, class:"button-dark buttons #{'active' if @current_view == 'user tests'}" %>
+
   </div>

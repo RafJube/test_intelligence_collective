@@ -1,6 +1,7 @@
 <div class="container d-flex flex-column align-items-center">
+  <h1>Cliquez sur une categorie pour découvrir les taests associés:</h1>
   <% @categories.each do |category| %>
-    <div class="row card-category">
+    <div class="row card-category" data-controller="category-animation" data-action="click->category-animation#animation">
       <div class="col-4 button-category buttons">
         <%= category.name.upcase %>
         <% test_count = Test.where(category_id: category).count %>
@@ -20,6 +21,10 @@
             <% end %>
           </div>
           <% end %>
+        </div>
+      <% else %>
+        <div class="buttons button-test">
+          Pas de test disponible pour le moment!
         </div>
       <% end %>
     </div>

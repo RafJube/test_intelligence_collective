@@ -1,6 +1,7 @@
 module  Admin
   class CategoriesController < AppAdminController
     before_action :set_category, only: %i[show edit update destroy]
+    before_action :set_current_view, only: %i[index new edit]
 
     def index
       @categories = Category.all
@@ -16,7 +17,7 @@ module  Admin
     def create
       @category = Category.new(category_params)
       if @category.save
-        redirect_to admin_category_path(@category)
+        redirect_to admin_categories_path
       else
         render :new
       end
@@ -33,13 +34,17 @@ module  Admin
     def update
       @category.update(category_params)
       if @category.save
-        redirect_to admin_category_path(@category)
+        redirect_to admin_categories_path
       else
         render :edit
       end
     end
 
     private
+
+    def set_current_view
+      @current_view = 'categories'
+    end
 
     def set_category
       @category = Category.find(params[:id])

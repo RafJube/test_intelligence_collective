@@ -1,0 +1,13 @@
+.card-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.card-category.animated {
+  justify-content: space-between;
+  padding: 100px 0;
+  width: 100%;
+}

@@ -1,39 +1,40 @@
 module  Admin
-  class CategoriesController < AppAdminController
-    before_action :set_category, only: %i[show edit update destroy]
+  class UsersController < AppAdminController
+    before_action :set_user, only: %i[show edit update destroy]
+    before_action :set_current_view, only: %i[index new edit]
 
     def index
-      @categories = Category.all
+      @users = User.all
     end
 
     def show
     end
 
     def new
-      @category = Category.new
+      @user = User.new
     end
 
     def create
-      @category = Category.new(category_params)
-      if @category.save
-        redirect_to admin_category_path(@category)
+      @user = User.new(user_params)
+      if @user.save
+        redirect_to admin_users_path(@user)
       else
         render :new
       end
     end
 
     def destroy
-      @category.destroy
-      redirect_to admin_categories_path
+      @user.destroy
+      redirect_to admin_users_path
     end
 
     def edit
     end
 
     def update
-      @category.update(category_params)
-      if @category.save
-        redirect_to admin_category_path(@category)
+      @user.update(user_params)
+      if @user.save
+        redirect_to admin_users_path(@user)
       else
         render :edit
       end
@@ -41,12 +42,16 @@ module  Admin
 
     private
 
-    def set_category
-      @category = Category.find(params[:id])
+    def set_current_view
+      @current_view = 'users'
     end
 
-    def category_params
-      params.require(:category).permit(:name)
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:email, :password, :username, :admin)
     end
   end
 end

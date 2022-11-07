@@ -1,0 +1,10 @@
+<div class="row d-flex justify-content-around">
+  <%= render 'admin/shared/side_bar' %>
+  <div class="col-8 d-flex flex-column">
+    <h1>Nouvelle Categorie</h1>
+    <%= simple_form_for @category, url: admin_categories_path do |f| %>
+      <%= f.input :name %>
+      <%= f.submit "Créer", class: "buttons button-dark" %>
+    <% end %>
+  </div>
+</div>
