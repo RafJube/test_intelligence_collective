@@ -51,7 +51,7 @@ test = Test.new(
   name: "liste de mots",
   duration: 600,
   description: "Ecrivez un maximum de mots commençant par 'A' et finissant par 'N' (example: 'amidon').",
-  solution: "50"
+  solution: "30"
 )
 test.category_id = Category.find_by_name("imagination").id
 test.save
