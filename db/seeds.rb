@@ -55,6 +55,8 @@ test = Test.new(
 )
 test.category_id = Category.find_by_name("imagination").id
 test.save
+puts "Test 1 OK"
+
 
 puts "Test 2"
 solution = {
@@ -93,7 +95,7 @@ solution = {
 }
 
 test = Test.new(
-  name: "Test de la NASA",
+  name: "test de la NASA",
   duration: 600,
   description: "Vous faites partie d’un groupe d’astronautes qui a aluni.
   Suite à un problème technique, vous êtes coincés à plus de 300km de votre base.
@@ -102,6 +104,102 @@ test = Test.new(
 )
 test.category_id = Category.find_by_name("logique").id
 test.save
+
+puts "Test 2 OK"
+
+puts "Test 3"
+solution = {
+  solutions_list: [
+    "joueur",
+    "bouleversé",
+    "désir",
+    "insistant",
+    "inquiet",
+    "rêveur",
+    "mal",
+    "à",
+    "l’aise",
+    "découragé",
+    "préoccupé",
+    "prudent",
+    "plein",
+    "de",
+    "regrets",
+    "sceptique",
+    "prévoyant",
+    "accusateur",
+    "contemplatif",
+    "songeur",
+    "dubitatif",
+    "déterminé",
+    "hésitant",
+    "amical",
+    "rêveur",
+    "préoccupé",
+    "provoquant",
+    "pensif",
+    "intéressé",
+    "hostile",
+    "prudent",
+    "intéressé",
+    "réfléchi",
+    "charmeur",
+    "confiant",
+    "sérieux",
+    "soucieux",
+    "méfiant",
+    "nerveux",
+    "suspicieux"],
+  proposals_list: [
+    ["joueur", "réconfortant", "irrité", "s’ennuyant"],
+    ["terrifié", "bouleversé", "arrogant", "agacé"],
+    ["blagueur", "angoissé", "désir", "convaincu"],
+    ["blagueur", "insistant", "amusé", "détendu"],
+    ["irrité", "sarcastique", "inquiet", "amical"],
+    ["effondré", "rêveur", "impatient", "alarmé"],
+    ["s’excusant", "amical", "mal à l’aise", "démoralisé"],
+    ["découragé", "soulagé", "timide", "excité"],
+    ["agacé", "hostile", "horrifié", "préoccupé"],
+    ["prudent", "insistant", "s’ennuyant", "effondré"],
+    ["terrifié", "amusé", "plein de regrets", "charmeur"],
+    ["indifférent", "embarrassé", "sceptique", "démoralisé"],
+    ["déterminé", "prévoyant", "menaçant", "timide"],
+    ["irrité", "déçu", "déprimé", "accusateur"],
+    ["contemplatif", "angoissé", "encourageant", "amusé"],
+    ["irrité", "songeur", "encourageant", "compatissant"],
+    ["dubitatif", "affectueux", "joueur", "effondré"],
+    ["déterminé", "amusé", "effondré", "s’ennuyant"],
+    ["arrogant", "reconnaissant", "sarcastique", "hésitant"],
+    ["dominant", "amical", "coupable", "horrifié"],
+    ["embarrassé", "rêveur", "confus", "paniqué"],
+    ["préoccupé", "reconnaissant", "insistant", "suppliant"],
+    ["content", "s’excusant", "provoquant", "curieux"],
+    ["pensif", "irrité", "excité", "hostile"],
+    ["paniqué", "incrédule", "découragé", "intéressé"],
+    ["alarmé", "timide", "hostile", "anxieux"],
+    ["blagueur", "prudent", "arrogant", "rassurant"],
+    ["intéressé", "blagueur", "affectueux", "content"],
+    ["impatient", "effondré", "irrité", "réfléchi"],
+    ["reconnaissant", "charmeur", "hostile", "déçu"],
+    ["honteux", "confiant", "blagueur", "démoralisé"],
+    ["sérieux", "honteux", "bouche bée", "alarmé"],
+    ["embarrassé", "coupable", "rêveur", "soucieux"],
+    ["effondré", "dérouté", "méfiant", "terrifié"],
+    ["perplexe", "nerveux", "insistant", "contemplatif"],
+    ["honteux", "nerveux", "suspicieux", "indécis"]
+  ]
+}
+
+test = Test.new(
+  name: "lecture dans les yeux",
+  duration: 600,
+  description: "Pour chacune des 36 photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé?",
+  solution: solution.to_json
+)
+test.category_id = Category.find_by_name("sensibilité").id
+test.save
+
+puts "Test 3 OK"
 
 puts "All Good Boys"
 puts "-------------------------"
