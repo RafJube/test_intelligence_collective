@@ -12,6 +12,10 @@ class UserTestsController < ApplicationController
     @test = Test.find(@user_test.test_id)
     global_answer = JSON.parse @user_test.answer
     @answers = global_answer["answers"]
+    case @test.name.downcase
+    when "lecture dans les yeux"
+      @raw_score = @user_test.lecture_yeux_good_answers
+    end
   end
 
   def new
@@ -32,6 +36,9 @@ class UserTestsController < ApplicationController
     when "test de la nasa"
       @user_test.answer = @user_test.nasa_validation
       @user_test.score = @user_test.nasa_score
+    when "lecture dans les yeux"
+      @user_test.answer = @user_test.lecture_yeux_validation
+      @user_test.score = @user_test.lecture_yeux_score
     end
     if @user_test.save
       redirect_to test_user_test_path(@test.name, @user_test)

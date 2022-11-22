@@ -1,0 +1,30 @@
+.expression {
+  display: none !important;
+  &.active {
+    display: contents !important;
+  }
+  .proposal {
+    flex: 0 0 auto;
+    margin: 2rem;
+  }
+}
+
+.lecturedanslesyeux {
+  .answers {
+    flex-direction: row;
+  }
+  .text-field-dark {
+    min-width: 300px;
+  }
+  .correct {
+    color: green;
+    font-weight: bold;
+  }
+  .incorrect {
+    color: red;
+    font-weight: bold;
+  }
+  .button-dark {
+    margin-top: 2rem;
+  }
+}

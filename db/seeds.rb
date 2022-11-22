@@ -116,15 +116,11 @@ solution = {
     "insistant",
     "inquiet",
     "rêveur",
-    "mal",
-    "à",
-    "l’aise",
+    "mal à l’aise",
     "découragé",
     "préoccupé",
     "prudent",
-    "plein",
-    "de",
-    "regrets",
+    "plein de regrets",
     "sceptique",
     "prévoyant",
     "accusateur",
@@ -193,7 +189,7 @@ solution = {
 test = Test.new(
   name: "lecture dans les yeux",
   duration: 600,
-  description: "Pour chacune des 36 photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé?",
+  description: "Savez-vous interpréter les émotions dans le regard des gens? Pour chacune des 36 photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé par celle_ci?",
   solution: solution.to_json
 )
 test.category_id = Category.find_by_name("sensibilité").id

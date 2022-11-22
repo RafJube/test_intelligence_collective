@@ -5,9 +5,11 @@
     </div>
     <% case @test.name.downcase %>
       <% when 'liste de mots' %>
-        <%= render "words_list/words_list_new" %>
+        <%= render "tests/words_list/words_list_new" %>
       <% when 'test de la nasa' %>
-        <%= render "nasa/nasa_new" %>
+        <%= render "tests/nasa/nasa_new" %>
+      <% when 'lecture dans les yeux' %>
+        <%= render "tests/lecture_yeux/lecture_yeux_new" %>
     <% end %>
   </div>
   <%= render 'shared/modal_test_description' %>

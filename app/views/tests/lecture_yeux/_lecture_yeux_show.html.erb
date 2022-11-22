@@ -1,0 +1,16 @@
+<div class="lecturedanslesyeux">
+  <h2>Vous avez trouvé <%= @raw_score > 1 ? "#{@raw_score} bonnes réponses" : "#{@raw_score} bonne réponse" %></h2>
+  <div class="buttons text-field-dark">
+    <% solution = JSON.parse @test.solution %>
+    <% solutions = solution["solutions_list"] %>
+    <% @answers.each_with_index do |elt, index| %>
+      <% if elt == solutions[index] %>
+        <p class="mb-0"><%= "Expression #{index + 1}: #{elt}" %> </p>
+      <% end %>
+    <% end %>
+  </div>
+  <button type="button" class="buttons button-dark" data-bs-toggle="modal" data-bs-target="#lectureYeuxSolution">
+        Voir la solution
+  </button>
+  <%= render 'tests/lecture_yeux/modal_lecture_yeux_solution' %>
+</div>
