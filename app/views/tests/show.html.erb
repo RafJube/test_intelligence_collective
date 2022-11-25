@@ -3,7 +3,9 @@
     <div class="col-5">
       <%= render 'shared/test_description' %>
       <% if @test.name == "pacman" %>
-        <%= render 'games/partial/test_show' %>
+        <%= link_to new_test_game_path(@test.name) do %>
+          <div class="buttons button-dark">Créer une partie</div>
+        <% end %>
       <% else %>
         <%= link_to new_test_user_test_path(@test.name) do %>
           <div class="buttons button-dark">

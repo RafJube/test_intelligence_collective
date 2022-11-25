@@ -3,7 +3,6 @@ import { startCounter, stopCounter } from '../customs/counter';
 
 export default class extends Controller {
   static targets = [ "answer", "form" ]
-  counter_id
 
   connect() {
     console.log("Hello from lecture-yeux-controller.js!");

@@ -15,11 +15,11 @@
       <% if tests.length > 0 %>
         <div class="col-4">
           <% tests.each do |test| %>
-          <div class="buttons button-test">
             <%= link_to test_path(test.name) do %>
-              <%= test.name.upcase %>
+              <div class="buttons button-test">
+                <%= test.name.upcase %>
+              </div>
             <% end %>
-          </div>
           <% end %>
         </div>
       <% else %>

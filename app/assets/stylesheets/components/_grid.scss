@@ -1,3 +1,8 @@
+.pacman {
+  h3 {
+    text-align: center;
+  }
+}
 #grid {
   width: fit-content;
   border: 3px solid black;
@@ -12,11 +17,17 @@
     height: 3rem;
   }
   .grid-cell.target {
-    background-image: asset_url('svg/pacman.svg');
+    background-image: asset_url('svg/pacman.svg') !important;
   }
   .grid-cell.ghost {
     background-image: asset_url('svg/ghost.svg');
   }
+  .grid-cell.arrival {
+    background-image: asset_url('svg/arrival.svg');
+  }
+}
+.pad-control {
+  margin-top: 1rem;
 }
 
 .pad {
@@ -27,17 +38,22 @@
   background-size: contain;
   width: 5rem;
   height: 5rem;
+  margin: 0.2rem;
   &.pad-up {
     background-image: asset_url('svg/arrow_orange_up.svg');
+    cursor: pointer;
   }
   &.pad-down {
     background-image: asset_url('svg/arrow_orange_down.svg');
+    cursor: pointer;
   }
   &.pad-right {
     background-image: asset_url('svg/arrow_orange_right.svg');
+    cursor: pointer;
   }
   &.pad-left {
     background-image: asset_url('svg/arrow_orange_left.svg');
+    cursor: pointer;
   }
   &.pad-empty {
     border: none;

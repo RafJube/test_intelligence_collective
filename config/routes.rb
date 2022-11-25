@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   resources :tests, only: [:show], param: :name do
     resources :user_tests, only: %i[show create new]
     resources :games, only: %i[show create new]
-    get 'join_game', to: 'games#entercode'
-    post 'join_game', to: 'games#join'
   end
   resources :user_tests, only: %i[index]
   resources :games, only: %i[index]

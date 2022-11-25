@@ -202,11 +202,11 @@ puts "Test 4"
 
 test = Test.new(
   name: "pacman",
-  duration: 600,
-  description: "Testez votre coordination d'équipe avec ce jeu! Attention celui-ci nécessite un minimum de 2 joueurs!",
+  description: "Testez votre capacité d'optimisation!
+  Vous devez manger tous les fantômes et regagner l'arrivée en utlisant le moins d'actions possibles et le plus rapidement.",
   solution: "N/A"
 )
-test.category_id = Category.find_by_name("coordination").id
+test.category_id = Category.find_by_name("optimisation").id
 test.save
 
 puts "Test 4 OK"

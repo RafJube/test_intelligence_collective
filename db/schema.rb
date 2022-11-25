@@ -22,19 +22,13 @@ ActiveRecord::Schema.define(version: 2022_11_23_140431) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.integer "players_number", default: 2, null: false
-    t.integer "time_refresh", default: 10, null: false
     t.integer "grid_size", default: 10, null: false
     t.integer "ghosts_number", default: 10, null: false
     t.integer "hit_count", default: 0
-    t.integer "total_time"
+    t.integer "total_time", default: 0
     t.boolean "completed", default: false
-    t.boolean "ongoing", default: false
-    t.integer "game_code"
     t.integer "target_position", default: 1
     t.string "ghosts_position"
-    t.string "pending_actions"
-    t.integer "users_connected", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "test_id", null: false
