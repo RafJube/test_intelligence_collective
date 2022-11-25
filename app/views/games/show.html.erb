@@ -1,0 +1,30 @@
+<div class="container" data-controller="game-subscription"
+  data-game-subscription-game-id-value="<%= @game.id %>" data-game-subscription-game-players-value="<%= @game.players_number %>" data-game-subscription-users-connected-value="<%= @game.users_connected %>" data-game-subscription-target-position-value="<%= @game.target_position %>" data-game-subscription-ghosts-position-value="<%= @game.ghosts_position %>">
+  <div class="row justify-content-between">
+    <div class="d-flex justify-content-center">
+      <h1><%= @test.name.upcase %> <i class="fa-solid fa-circle-info" data-bs-toggle="modal" data-bs-target="#testDescription"></i> - Code: <%= @game.game_code %></h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-2 game-infos" data-game-subscription-target="gameInfos">
+        <p>Joueurs connectés: <span data-game-subscription-target="gameUsers"><%= @game.users_connected %></span> / <%= @game.players_number %></p>
+        <div class="countings">
+          <div>Total hits: <%= @game.hit_count %></div>
+        </div>
+      </div>
+      <div class="col-10 d-flex justify-content-center">
+        <%= render 'games/partial/grid' %>
+        <div id="waiting-room"><h1>En attente des autres participants</h1></div>
+        <div class="pad-control d-flex flex-column justify-content-center">
+          <div class="pad pad-up"></div>
+          <div class="d-flex flex-row justify-content-center align-items-center">
+            <div class="pad pad-left"></div>
+            <div class="pad pad-empty"></div>
+            <div class="pad pad-right"></div>
+          </div>
+          <div class="pad pad-down"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/modal_test_description' %>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="d-flex justify-content-center">
+      <h1><%= @test.name.upcase %> <i class="fa-solid fa-circle-info" data-bs-toggle="modal" data-bs-target="#testDescription"></i></h1>
+    </div>
+      <div class="d-flex justify-content-center">
+        <div class="col-8">
+          <%= simple_form_for [@test, @game], url: test_join_game_path(@test.name) do |f| %>
+              <h3>Entrez le code de la partie que vous voulez rejoindre:</h3>
+              <%= f.input :game_code,
+                as: :integer,
+                required: true,
+                label: false,
+                :input_html => { class: 'text-field' } %>
+              <%= f.submit "Rejoindre la partie", class: "buttons button-dark" %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+  <%= render 'shared/modal_test_description' %>
+</div>

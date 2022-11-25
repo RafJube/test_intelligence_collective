@@ -23,7 +23,8 @@ puts "Creating Users..."
 User.create!(
   username: "Raf",
   email: "raphaeljube@ymail.com",
-  password: "secret"
+  password: "secret",
+  admin: true
 )
 
 User.create!(
@@ -37,7 +38,7 @@ puts "Done"
 puts "-------------------------"
 puts "Creating Categories..."
 
-@categories = ["logique", "imagination", "optimisation", "coodination", "sensibilité"]
+@categories = ["logique", "imagination", "optimisation", "coordination", "sensibilité"]
 @categories.each do |category|
   Category.create(name: category)
 end
@@ -196,6 +197,19 @@ test.category_id = Category.find_by_name("sensibilité").id
 test.save
 
 puts "Test 3 OK"
+
+puts "Test 4"
+
+test = Test.new(
+  name: "pacman",
+  duration: 600,
+  description: "Testez votre coordination d'équipe avec ce jeu! Attention celui-ci nécessite un minimum de 2 joueurs!",
+  solution: "N/A"
+)
+test.category_id = Category.find_by_name("coordination").id
+test.save
+
+puts "Test 4 OK"
 
 puts "All Good Boys"
 puts "-------------------------"

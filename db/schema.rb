@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_25_135938) do
+ActiveRecord::Schema.define(version: 2022_11_23_140431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(version: 2022_10_25_135938) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "players_number", default: 2, null: false
+    t.integer "time_refresh", default: 10, null: false
+    t.integer "grid_size", default: 10, null: false
+    t.integer "ghosts_number", default: 10, null: false
+    t.integer "hit_count", default: 0
+    t.integer "total_time"
+    t.boolean "completed", default: false
+    t.boolean "ongoing", default: false
+    t.integer "game_code"
+    t.integer "target_position", default: 1
+    t.string "ghosts_position"
+    t.string "pending_actions"
+    t.integer "users_connected", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "test_id", null: false
+    t.index ["test_id"], name: "index_games_on_test_id"
   end
 
   create_table "tests", force: :cascade do |t|
@@ -30,6 +50,15 @@ ActiveRecord::Schema.define(version: 2022_10_25_135938) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
+  end
+
+  create_table "user_games", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_user_games_on_game_id"
+    t.index ["user_id"], name: "index_user_games_on_user_id"
   end
 
   create_table "user_tests", force: :cascade do |t|
@@ -58,7 +87,10 @@ ActiveRecord::Schema.define(version: 2022_10_25_135938) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "tests"
   add_foreign_key "tests", "categories"
+  add_foreign_key "user_games", "games"
+  add_foreign_key "user_games", "users"
   add_foreign_key "user_tests", "tests"
   add_foreign_key "user_tests", "users"
 end

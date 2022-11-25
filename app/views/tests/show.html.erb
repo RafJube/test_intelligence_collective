@@ -2,10 +2,14 @@
   <div class="row justify-content-center">
     <div class="col-5">
       <%= render 'shared/test_description' %>
-      <%= link_to new_test_user_test_path(@test.name) do %>
-        <div class="buttons button-dark">
-          Commencer le test
-        </div>
+      <% if @test.name == "pacman" %>
+        <%= render 'games/partial/test_show' %>
+      <% else %>
+        <%= link_to new_test_user_test_path(@test.name) do %>
+          <div class="buttons button-dark">
+            Commencer le test
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

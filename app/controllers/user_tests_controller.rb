@@ -50,6 +50,6 @@ class UserTestsController < ApplicationController
   private
 
   def user_test_params
-    params.require(:user_test).permit(:complete, :answer, :score, :user_id, :test_name)
+    params.require(:user_test).permit(:completed, :answer, :score, :user_id, :test_name)
   end
 end

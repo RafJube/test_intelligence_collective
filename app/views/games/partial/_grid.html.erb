@@ -1,0 +1,9 @@
+<div class="d-flex flex-column justify-content-center align-items-center" id="grid" data-game-subscription-target="gameGrid">
+  <% @game.grid_size.times do %>
+    <div class="grid-row d-flex flex-row justify-content-center align-items-center">
+      <% @game.grid_size.times do %>
+        <div class="grid-cell d-flex flex-row justify-content-center align-items-center"></div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

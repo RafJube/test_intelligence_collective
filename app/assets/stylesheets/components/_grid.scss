@@ -1,0 +1,45 @@
+#grid {
+  width: fit-content;
+  border: 3px solid black;
+  padding: 0;
+  .grid-cell {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid gray;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+  }
+  .grid-cell.target {
+    background-image: asset_url('svg/pacman.svg');
+  }
+  .grid-cell.ghost {
+    background-image: asset_url('svg/ghost.svg');
+  }
+}
+
+.pad {
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid black;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 5rem;
+  height: 5rem;
+  &.pad-up {
+    background-image: asset_url('svg/arrow_orange_up.svg');
+  }
+  &.pad-down {
+    background-image: asset_url('svg/arrow_orange_down.svg');
+  }
+  &.pad-right {
+    background-image: asset_url('svg/arrow_orange_right.svg');
+  }
+  &.pad-left {
+    background-image: asset_url('svg/arrow_orange_left.svg');
+  }
+  &.pad-empty {
+    border: none;
+  }
+}
