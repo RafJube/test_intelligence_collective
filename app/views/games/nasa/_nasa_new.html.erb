@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center nasa" data-controller="nasa" data-nasa-duration="<%= @game.duration %>" >
+  <div class="col-8 nasa-new">
+    <h1><i class="fa-solid fa-stopwatch"></i> <span id="counter"></span></h1>
+    <%= simple_form_for [@game, @user_game], url: game_user_games_path(@game.name), :data => { "nasa-target"=>"form" } do |f| %>
+        <h3>Drag and drop les propositions dans l'ordre de votre choix, les plus hauts étant indispensables et les plus bas inutiles. Bonne chance!</h3>
+        <% solution = JSON.parse @game.solution %>
+        <% list = solution["solutions_list"] %>
+        <ul id="nasa-list" class="list-group" data-controller="sortable">
+          <% list.shuffle.each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+        <%= f.input :answer, label: false, :input_html => { class: 'text-field', display: "none", data: {nasa_target: "answer"} } %>
+        <%= f.submit "Arreter le chrono avant la fin et valider", class: "buttons button-dark", :data => { action: "click->nasa#submitForm" } %>
+    <% end %>
+  </div>
+</div>

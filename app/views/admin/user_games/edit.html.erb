@@ -1,0 +1,15 @@
+<div class="row d-flex justify-content-around">
+  <%= render 'admin/shared/side_bar' %>
+  <div class="col-8 d-flex flex-column">
+    <h1>User Game</h1>
+    <%= simple_form_for @user_game, url: admin_user_game_path(@user_game) do |f| %>
+      <p>ID: <%= @user_game.id %></p>
+      <p>User: <%= @user_game.user.username %></p>
+      <p>Game: <%= @user_game.game.name %></p>
+      <%= f.input :score %>
+      <%= f.input :completed %>
+      <%= f.input :answer %>
+      <%= f.submit "Mettre à jour", class: "buttons button-dark" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="row justify-content-center">
+    <h1><%= @game.name.upcase %> <i class="fa-solid fa-circle-info" data-bs-toggle="modal" data-bs-target="#gameDescription"></i></h1>
+  </div>
+  <div class="row justify-content-between">
+    <div class="col-sm-5 col-12">
+      <% case @game.name.downcase %>
+        <% when 'liste de mots' %>
+          <%= render "games/words_list/words_list_show" %>
+        <% when 'test de la nasa' %>
+          <%= render "games/nasa/nasa_show" %>
+        <% when 'lecture dans les yeux' %>
+          <%= render "games/lecture_yeux/lecture_yeux_show" %>
+        <% when 'pacman' %>
+          <%= render "pacmen/show" %>
+      <% end %>
+    </div>
+    <div class="col-sm-5 col-12">
+      <h2>Votre score est de:</h2>
+      <h2><%= @user_game.score %>%</h2>
+      <h2>Statistiques:</h2>
+    </div>
+    <%= render 'shared/modal_game_description' %>
+  </div>
+</div>

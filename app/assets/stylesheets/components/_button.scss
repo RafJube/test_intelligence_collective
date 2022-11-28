@@ -89,7 +89,7 @@
   height: 150px;
   width: 400px;
   transition: 0.5s;
-  .test-info {
+  .game-info {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -106,7 +106,7 @@
   }
 }
 
-.button-test {
+.button-game {
   display: none;
   border:solid 5px #41403E;
   position: relative;
@@ -127,7 +127,7 @@
     animation-timing-function: ease-in-out;
     z-index: 1000;
   }
-  .button-test {
+  .button-game {
   display: flex;
   animation:1s translationX linear;
   animation-iteration-count: 1;
@@ -137,7 +137,7 @@
   }
 }
 
-.button-test:hover {
+.button-game:hover {
   scale: 1.2;
 }
 

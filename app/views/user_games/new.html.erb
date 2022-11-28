@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="d-flex justify-content-center">
+      <h1><%= @game.name.upcase %> <i class="fa-solid fa-circle-info" data-bs-toggle="modal" data-bs-target="#gameDescription"></i></h1>
+    </div>
+    <% case @game.name.downcase %>
+      <% when 'liste de mots' %>
+        <%= render "games/words_list/words_list_new" %>
+      <% when 'test de la nasa' %>
+        <%= render "games/nasa/nasa_new" %>
+      <% when 'lecture dans les yeux' %>
+        <%= render "games/lecture_yeux/lecture_yeux_new" %>
+    <% end %>
+  </div>
+  <%= render 'shared/modal_game_description' %>
+</div>

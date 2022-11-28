@@ -1,7 +1,20 @@
-<h1>Name: <%= @game.test.name %></h1>
-<h1>Grid size: <%= @game.grid_size %></h1>
-<h1>Ghosts number: <%= @game.ghosts_number %></h1>
-<h1>Ghosts position: <%= @game.ghosts_position %></h1>
-<h1>Nombre de coups:  <%= @game.hit_count %></h1>
-<h1>Temps: <%= @game.total_time %></h1>
-<h1>Fini: <%= @game.completed %></h1>
+<div class="d-flex flex-column align-items-center">
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <%= render 'shared/game_description' %>
+      <% if @game.name.downcase == 'pacman' %>
+        <%= link_to new_game_pacman_path(@game.name) do %>
+          <div class="buttons button-dark">
+            Commencer le test
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to new_game_user_game_path(@game.name) do %>
+          <div class="buttons button-dark">
+            Commencer le test
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

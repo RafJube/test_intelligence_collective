@@ -1,7 +1,0 @@
-<h1><%= @test.name.upcase %></h1>
-<% if @test.duration %>
-  <h2>Durée: <%= @test.duration.divmod(60)[0] %>mn <%= @test.duration.divmod(60)[1] %>s</h2>
-<% else %>
-  <h2>Durée: pas de limite de temps!</h2>
-<% end %>
-<h5>Objectif: <%= @test.description %></h4>

@@ -13,7 +13,7 @@ require "open-uri"
 puts "Destroy everything..."
 
 User.destroy_all if Rails.env.development?
-Test.destroy_all if Rails.env.development?
+Game.destroy_all if Rails.env.development?
 Category.destroy_all if Rails.env.development?
 
 puts "Done"
@@ -38,28 +38,28 @@ puts "Done"
 puts "-------------------------"
 puts "Creating Categories..."
 
-@categories = ["logique", "imagination", "optimisation", "coordination", "sensibilité"]
+@categories = ["logique", "imagination", "optimisation", "sensibilité"]
 @categories.each do |category|
   Category.create(name: category)
 end
 
 puts "Done"
 puts "-------------------------"
-puts "Creating Tests..."
-puts "Test 1"
+puts "Creating Games..."
+puts "Game 1"
 
-test = Test.new(
+game = Game.new(
   name: "liste de mots",
   duration: 600,
   description: "Ecrivez un maximum de mots commençant par 'A' et finissant par 'N' (example: 'amidon').",
   solution: "30"
 )
-test.category_id = Category.find_by_name("imagination").id
-test.save
-puts "Test 1 OK"
+game.category_id = Category.find_by_name("imagination").id
+game.save
+puts "Game 1 OK"
 
 
-puts "Test 2"
+puts "Game 2"
 solution = {
   solutions_list: [
     "2 réservoires de 50kg d'oxygène chacun",
@@ -95,7 +95,7 @@ solution = {
   ]
 }
 
-test = Test.new(
+game = Game.new(
   name: "test de la NASA",
   duration: 600,
   description: "Vous faites partie d’un groupe d’astronautes qui a aluni.
@@ -103,12 +103,12 @@ test = Test.new(
   Ainsi, pour rejoindre votre base où se trouve la fusée et retourner sur terre, vous devrez classer par ordre de priorité les 15 objets dont vous avez besoin, du haut (indispensable) vers le bas (inutile).",
   solution: solution.to_json
 )
-test.category_id = Category.find_by_name("logique").id
-test.save
+game.category_id = Category.find_by_name("logique").id
+game.save
 
-puts "Test 2 OK"
+puts "Game 2 OK"
 
-puts "Test 3"
+puts "Game 3"
 solution = {
   solutions_list: [
     "joueur",
@@ -187,29 +187,29 @@ solution = {
   ]
 }
 
-test = Test.new(
+game = Game.new(
   name: "lecture dans les yeux",
   duration: 600,
   description: "Savez-vous interpréter les émotions dans le regard des gens? Pour chacune des 36 photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé par celle_ci?",
   solution: solution.to_json
 )
-test.category_id = Category.find_by_name("sensibilité").id
-test.save
+game.category_id = Category.find_by_name("sensibilité").id
+game.save
 
-puts "Test 3 OK"
+puts "Game 3 OK"
 
-puts "Test 4"
+puts "Game 4"
 
-test = Test.new(
+game = Game.new(
   name: "pacman",
   description: "Testez votre capacité d'optimisation!
   Vous devez manger tous les fantômes et regagner l'arrivée en utlisant le moins d'actions possibles et le plus rapidement.",
   solution: "N/A"
 )
-test.category_id = Category.find_by_name("optimisation").id
-test.save
+game.category_id = Category.find_by_name("optimisation").id
+game.save
 
-puts "Test 4 OK"
+puts "game 4 OK"
 
 puts "All Good Boys"
 puts "-------------------------"

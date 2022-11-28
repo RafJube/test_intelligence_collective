@@ -1,42 +1,17 @@
 class GamesController < ApplicationController
-  before_action :test_by_name, only: %i[entercode join new create]
-
-  def index
-    @games = Game.joins(:user_games).where(user_games: { user_id: current_user })
-  end
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def show
-    @game = Game.find(params[:id])
-    @test = @game.test
+    @game = Game.find_by_name(params[:name])
   end
 
-  def new
-    @game = Game.new
-    @game.ghosts_position = @game.random_ghosts
-    @game.test = @test
-  end
-
-  def create
-    @user_game = UserGame.new
-    @game = Game.new(game_params)
-    @game.test = @test
-    @game.completed = true
-    if @game.save
-      @game.create_game_user(current_user)
-      redirect_to test_game_path(@test.name, @game)
-    else
-      render :new
-    end
+  def to_param
+    name
   end
 
   private
 
-  def test_by_name
-    @test = Test.find_by_name(params[:test_name])
-  end
-
   def game_params
-    params.require(:game).permit(:grid_size, :ghosts_number, :ghosts_position, :total_time, :hit_count)
+    params.require(:game).permit(:name)
   end
-
 end
