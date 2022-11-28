@@ -1,0 +1,37 @@
+<div class="row d-flex justify-content-around">
+  <%= render 'admin/shared/side_bar' %>
+  <div class="col-8 d-flex flex-column">
+    <h1>Games</h1>
+    <div class="row">
+      <div class="col-3 d-flex align-items-center"><h2>Name</h2></div>
+      <div class="col-2 d-flex align-items-center"><h2>Duration</h2></div>
+      <div class="col-4 d-flex align-items-center"><h2>Description</h2></div>
+      <div class="col-1 d-flex justify-content-center align-items-center"><h3>Edit</h3></div>
+      <div class="col-1 d-flex justify-content-center align-items-center"><h3>Destroy</h3></div>
+    </div>
+    <% @games.each do |game| %>
+      <div class="row">
+        <div class="col-3 d-flex align-items-center"><h3><%= game.name %></h3></div>
+        <div class="col-2 d-flex align-items-center"><h3><%= game.duration %></h3></div>
+        <div class="col-4 d-flex align-items-center"><p><%= game.description %></p></div>
+        <div class="col-1 d-flex justify-content-center align-items-center">
+          <%= link_to edit_admin_game_path(game) do %>
+            <i class="fa-solid fa-pencil"></i>
+          <% end %>
+        </div>
+        <div class="col-1 d-flex justify-content-center align-items-center">
+          <%= link_to admin_game_path(game),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div class="button-dark buttons mt-5">
+      <%= link_to new_admin_game_path do %>
+        Nouveau game
+      </div>
+    <% end %>
+  </div>
+</div>

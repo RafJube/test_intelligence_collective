@@ -1,0 +1,20 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <%= render 'shared/game_description' %>
+      <% if @game.name.downcase == 'pacman' %>
+        <%= link_to new_game_pacman_path(@game.name) do %>
+          <div class="buttons button-dark">
+            Commencer le test
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to new_game_user_game_path(@game.name) do %>
+          <div class="buttons button-dark">
+            Commencer le test
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -4,26 +4,26 @@
     <div class="row card-category" data-controller="category-animation" data-action="click->category-animation#animation">
       <div class="col-4 button-category buttons">
         <%= category.name.upcase %>
-        <% test_count = Test.where(category_id: category).count %>
-        <% if test_count > 0 %>
-          <div class="test-info">
-            <%= test_count %>
+        <% game_count = Game.where(category_id: category).count %>
+        <% if game_count > 0 %>
+          <div class="game-info">
+            <%= game_count %>
           </div>
         <% end %>
       </div>
-      <% tests = Test.where(category_id: category) %>
-      <% if tests.length > 0 %>
+      <% games = Game.where(category_id: category) %>
+      <% if games.length > 0 %>
         <div class="col-4">
-          <% tests.each do |test| %>
-          <div class="buttons button-test">
-            <%= link_to test_path(test.name) do %>
-              <%= test.name.upcase %>
+          <% games.each do |game| %>
+            <%= link_to game_path(game.name) do %>
+              <div class="buttons button-game">
+                <%= game.name.upcase %>
+              </div>
             <% end %>
-          </div>
           <% end %>
         </div>
       <% else %>
-        <div class="buttons button-test">
+        <div class="buttons button-game">
           Pas de test disponible pour le moment!
         </div>
       <% end %>

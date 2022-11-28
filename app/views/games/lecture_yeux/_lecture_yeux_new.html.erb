@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center nasa" data-controller="lecture-yeux" data-lecture-yeux-duration="<%= @game.duration %>" >
+  <div class="col-10 lecture-yeux-new">
+    <h1><i class="fa-solid fa-stopwatch"></i> <span id="counter"></span></h1>
+    <%= simple_form_for [@game, @user_game], url: game_user_games_path(@game.name), :data => { "lecture-yeux-target"=>"form" } do |f| %>
+      <% solution = JSON.parse @game.solution %>
+      <% expressions = solution["proposals_list"]  %>
+      <% count = 0 %>
+        <% expressions.each do |expression| %>
+          <div class="expression row col-12 d-flex flex-column align-items-center justify-content-center">
+            <% count += 1 %>
+            <h1><%= "Expression #{count}" %></h1>
+            <%= image_tag "lecture_dans_les_yeux/photo-#{count}.jpeg", class: "photos-expression" %>
+            <div class="proposals col-xl-12 col-10 row justify-content-around align-items-center">
+              <% expression.each do |proposal| %>
+                <button type="button" class="proposal buttons button-dark" data-action= "click->lecture-yeux#nextExpression"><%= proposal %></button type="button">
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <%= f.input :answer, label: false, :input_html => { class: 'text-field d-none', data: {lecture_yeux_target: "answer"} } %>
+    <% end %>
+  </div>
+</div>

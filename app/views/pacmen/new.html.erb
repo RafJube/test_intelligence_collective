@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="d-flex justify-content-center">
+      <h1><%= @game.name.upcase %> <i class="fa-solid fa-circle-info" data-bs-toggle="modal" data-bs-target="#gameDescription"></i></h1>
+    </div>
+    <div class="d-flex justify-content-center pacman" data-controller="pacman" data-action="keydown@window->pacman#keyDown" data-pacman-grid-size-value="<%= @pacman.grid_size %>" data-pacman-ghosts-position-value="<%= @pacman.ghosts_position %>">
+      <div class="col-8 row d-flex flex-column justify-content-center align-items-center">
+        <div class="col-8 game-infos row">
+          <div class="col-6 d-flex flex-column align-items-start"><h1><i class="fa-solid fa-stopwatch"></i> <span id="stop-watch"></span></h1></div>
+          <div class="col-6 d-flex flex-column align-items-end countings">
+            <div><h1>Total hits: <span data-pacman-target="score"></span></h1></div>
+          </div>
+        </div>
+        <%= render 'pacmen/partial/grid' %>
+        <div class="pad-control d-flex flex-column justify-content-center align-items-center">
+          <div class="pad pad-up" data-action="click->pacman#moveUp"></div>
+          <div class="d-flex flex-row justify-content-center">
+            <div class="pad pad-left" data-action="click->pacman#moveLeft"></div>
+            <div class="pad pad-empty"></div>
+            <div class="pad pad-right" data-action="click->pacman#moveRight"></div>
+          </div>
+          <div class="pad pad-down" data-action="click->pacman#moveDown"></div>
+        </div>
+        <h3>Utilisez le pad de l'écran ou du clavier pour vous déplacer.</h3>
+      </div>
+      <%= simple_form_for [@game, @pacman], url: game_pacmen_path(@game.name), :data => { "pacman-target"=>"form" } do |f| %>
+        <%= f.input :ghosts_position, label: false, :input_html => { class: "d-none" } %>
+        <%= f.input :hits_count, as: :integer, label: false, :input_html => { class: "d-none", data: {pacman_target: "hitsCount"} } %>
+        <%= f.input :total_time, as: :integer, label: false, :input_html => { class: "d-none", data: {pacman_target: "totalTime"} } %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/modal_game_description' %>
+</div>

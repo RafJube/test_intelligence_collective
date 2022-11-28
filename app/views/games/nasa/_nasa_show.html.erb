@@ -1,0 +1,12 @@
+<div class="nasa">
+  <h2>Votre réponse: </h2>
+  <ul>
+    <% @answers.each do |elt| %>
+      <li> <%= elt %> </li>
+    <% end %>
+  </ul>
+  <button type="button" class="buttons button-dark" data-bs-toggle="modal" data-bs-target="#nasaSolution">
+        Voir la solution
+  </button>
+  <%= render 'games/nasa/modal_nasa_solution' %>
+</div>

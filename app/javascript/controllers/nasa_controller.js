@@ -3,7 +3,6 @@ import { startCounter, stopCounter } from '../customs/counter';
 
 export default class extends Controller {
   static targets = [ "answer", "button", "form" ]
-  counter_id
 
   connect() {
     console.log("Hello from nasa-controller.js!");
