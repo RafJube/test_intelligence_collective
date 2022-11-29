@@ -1,6 +1,7 @@
 class UserGame < ApplicationRecord
   belongs_to :user
   belongs_to :game
+  has_one :category, through: :game
   has_one :pacman
 
   def words_list_validation
@@ -48,7 +49,7 @@ class UserGame < ApplicationRecord
     solution = JSON.parse game.solution
     solution = solution["solutions_list"]
     count = 0
-    answers[0...-1].each_with_index do |answer, index|
+    answers[0..-1].each_with_index do |answer, index|
       answer == solution[index] ? count += 1 : count += 0
     end
     count

@@ -97,7 +97,7 @@ solution = {
 
 game = Game.new(
   name: "test de la NASA",
-  duration: 600,
+  duration: 270,
   description: "Vous faites partie d’un groupe d’astronautes qui a aluni.
   Suite à un problème technique, vous êtes coincés à plus de 300km de votre base.
   Ainsi, pour rejoindre votre base où se trouve la fusée et retourner sur terre, vous devrez classer par ordre de priorité les 15 objets dont vous avez besoin, du haut (indispensable) vers le bas (inutile).",
@@ -128,7 +128,44 @@ solution = {
     "contemplatif",
     "songeur",
     "dubitatif",
-    "déterminé",
+    "déterminé"
+    ],
+  proposals_list: [
+    ["joueur", "réconfortant", "irrité", "s’ennuyant"],
+    ["terrifié", "bouleversé", "arrogant", "agacé"],
+    ["blagueur", "angoissé", "désir", "convaincu"],
+    ["blagueur", "insistant", "amusé", "détendu"],
+    ["irrité", "sarcastique", "inquiet", "amical"],
+    ["effondré", "rêveur", "impatient", "alarmé"],
+    ["s’excusant", "amical", "mal à l’aise", "démoralisé"],
+    ["découragé", "soulagé", "timide", "excité"],
+    ["agacé", "hostile", "horrifié", "préoccupé"],
+    ["prudent", "insistant", "s’ennuyant", "effondré"],
+    ["terrifié", "amusé", "plein de regrets", "charmeur"],
+    ["indifférent", "embarrassé", "sceptique", "démoralisé"],
+    ["déterminé", "prévoyant", "menaçant", "timide"],
+    ["irrité", "déçu", "déprimé", "accusateur"],
+    ["contemplatif", "angoissé", "encourageant", "amusé"],
+    ["irrité", "songeur", "encourageant", "compatissant"],
+    ["dubitatif", "affectueux", "joueur", "effondré"],
+    ["déterminé", "amusé", "effondré", "s’ennuyant"]
+  ]
+}
+
+game = Game.new(
+  name: "lecture dans les yeux",
+  duration: 270,
+  description: "Savez-vous interpréter les émotions dans le regard des gens? Pour chacune des 36 photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé par celle_ci?",
+  solution: solution.to_json
+)
+game.category_id = Category.find_by_name("sensibilité").id
+game.save
+
+puts "Game 3 OK"
+
+puts "Game 3bis"
+solution = {
+  solutions_list: [
     "hésitant",
     "amical",
     "rêveur",
@@ -148,24 +185,6 @@ solution = {
     "nerveux",
     "suspicieux"],
   proposals_list: [
-    ["joueur", "réconfortant", "irrité", "s’ennuyant"],
-    ["terrifié", "bouleversé", "arrogant", "agacé"],
-    ["blagueur", "angoissé", "désir", "convaincu"],
-    ["blagueur", "insistant", "amusé", "détendu"],
-    ["irrité", "sarcastique", "inquiet", "amical"],
-    ["effondré", "rêveur", "impatient", "alarmé"],
-    ["s’excusant", "amical", "mal à l’aise", "démoralisé"],
-    ["découragé", "soulagé", "timide", "excité"],
-    ["agacé", "hostile", "horrifié", "préoccupé"],
-    ["prudent", "insistant", "s’ennuyant", "effondré"],
-    ["terrifié", "amusé", "plein de regrets", "charmeur"],
-    ["indifférent", "embarrassé", "sceptique", "démoralisé"],
-    ["déterminé", "prévoyant", "menaçant", "timide"],
-    ["irrité", "déçu", "déprimé", "accusateur"],
-    ["contemplatif", "angoissé", "encourageant", "amusé"],
-    ["irrité", "songeur", "encourageant", "compatissant"],
-    ["dubitatif", "affectueux", "joueur", "effondré"],
-    ["déterminé", "amusé", "effondré", "s’ennuyant"],
     ["arrogant", "reconnaissant", "sarcastique", "hésitant"],
     ["dominant", "amical", "coupable", "horrifié"],
     ["embarrassé", "rêveur", "confus", "paniqué"],
@@ -188,7 +207,7 @@ solution = {
 }
 
 game = Game.new(
-  name: "lecture dans les yeux",
+  name: "lecture dans les yeux - le retour",
   duration: 600,
   description: "Savez-vous interpréter les émotions dans le regard des gens? Pour chacune des 36 photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé par celle_ci?",
   solution: solution.to_json
@@ -196,7 +215,7 @@ game = Game.new(
 game.category_id = Category.find_by_name("sensibilité").id
 game.save
 
-puts "Game 3 OK"
+puts "Game 3bis OK"
 
 puts "Game 4"
 

@@ -6,7 +6,7 @@ export default class extends Controller {
 
   connect() {
     console.log("Hello from nasa-controller.js!");
-    this.counter_id = startCounter(this.data.get("duration", this.handleEndOfGame.bind(this)));
+    this.counter_id = startCounter(this.data.get("duration"), this.handleEndOfGame.bind(this));
     // this.counter_id = startCounter(20, this.submitForm.bind(this));
   }
 

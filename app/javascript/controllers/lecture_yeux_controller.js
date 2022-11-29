@@ -6,21 +6,42 @@ export default class extends Controller {
 
   connect() {
     console.log("Hello from lecture-yeux-controller.js!");
-    this.counter_id = startCounter(this.data.get("duration", this.handleEndOfGame.bind(this)));
     // this.counter_id = startCounter(20, this.submitForm.bind(this));
     this.expressionIndex = 1;
     this.expressions = this.formTarget.getElementsByClassName("expression");
     this.expressionsLength = this.expressions.length;
+    this.duration = this.data.get("duration") / this.expressionsLength
     this.showExpression(this.expressionIndex);
   }
 
   handleEndOfGame() {
-    stopCounter(this.counter_id);
-    this.formTarget.submit();
+    this.validationAnswer("no answer")
+    this.nextExpression();
   }
 
-  nextExpression(event) {
-    this.validationAnswer(event.target);
+  updateProgressBar(inc) {
+    let width = inc;
+    let element = document.getElementById("progressBar");
+    let interval = setInterval(function () {
+      if (width >= 100) {
+        clearInterval(interval);
+      } else {
+        width += inc;
+        element.style.width = width + '%';
+      }
+    }
+    , this.duration * 10 / 2);
+    return interval
+  }
+
+  validationExpression(event) {
+    this.validationAnswer(event.target.innerHTML);
+    this.nextExpression();
+  }
+
+  nextExpression() {
+    stopCounter(this.counter_id);
+    clearInterval(this.progress_id);
     this.hideExpression(this.expressionIndex)
     console.log(this.answerTarget.innerHTML)
     this.expressionIndex += 1;
@@ -31,9 +52,9 @@ export default class extends Controller {
     }
   }
 
-  validationAnswer(target) {
-    console.log(target.innerHTML)
-    this.answerTarget.innerHTML += target.innerHTML + ";"
+  validationAnswer(content) {
+    console.log(content)
+    this.answerTarget.innerHTML += content + ";"
   }
 
   hideExpression(index){
@@ -42,6 +63,8 @@ export default class extends Controller {
 
   showExpression(index){
     this.expressions[index-1].classList.add("active");
+    this.counter_id = startCounter(this.duration, this.handleEndOfGame.bind(this));
+    this.progress_id = this.updateProgressBar(0.5);
   }
 
   disconnect() {

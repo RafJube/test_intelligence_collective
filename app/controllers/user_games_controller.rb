@@ -1,9 +1,9 @@
 class UserGamesController < ApplicationController
   def index
     @user_games = UserGame.where(user_id: current_user)
-    @games = []
+    @categories = []
     @user_games.each do |user_game|
-      @games.include?(user_game.game) ? @games : @games << user_game.game
+      @categories.include?(user_game.category) ? @categories : @categories << user_game.category
     end
   end
 
@@ -15,7 +15,7 @@ class UserGamesController < ApplicationController
       @answers = global_answer["answers"]
     end
     case @game.name.downcase
-    when "lecture dans les yeux"
+    when "lecture dans les yeux", "lecture dans les yeux - le retour"
       @raw_score = @user_game.lecture_yeux_good_answers
     when "pacman"
       @pacman = @user_game.pacman
@@ -40,7 +40,7 @@ class UserGamesController < ApplicationController
     when "test de la nasa"
       @user_game.answer = @user_game.nasa_validation
       @user_game.score = @user_game.nasa_score
-    when "lecture dans les yeux"
+    when "lecture dans les yeux", 'lecture dans les yeux - le retour'
       @user_game.answer = @user_game.lecture_yeux_validation
       @user_game.score = @user_game.lecture_yeux_score
     end
