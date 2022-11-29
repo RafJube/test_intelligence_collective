@@ -155,7 +155,7 @@ solution = {
 game = Game.new(
   name: "lecture dans les yeux",
   duration: 270,
-  description: "Savez-vous interpréter les émotions dans le regard des gens? Pour chacune des 36 photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé par celle_ci?",
+  description: "Savez-vous interpréter les émotions dans le regard des gens? Pour chacune des photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé par celle_ci?",
   solution: solution.to_json
 )
 game.category_id = Category.find_by_name("sensibilité").id
@@ -208,8 +208,8 @@ solution = {
 
 game = Game.new(
   name: "lecture dans les yeux - le retour",
-  duration: 600,
-  description: "Savez-vous interpréter les émotions dans le regard des gens? Pour chacune des 36 photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé par celle_ci?",
+  duration: 270,
+  description: "Savez-vous interpréter les émotions dans le regard des gens? Pour chacune des photographies de regards qui suivront, lequel des 4 états d'esprit proposés est exprimé par celle_ci?",
   solution: solution.to_json
 )
 game.category_id = Category.find_by_name("sensibilité").id
